@@ -1,4 +1,3 @@
-# Products
 | Requirements |
 | ------------ |
 | .NET core 2.1 |
