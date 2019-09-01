@@ -1,0 +1,8 @@
+.btn-add-product {
+    margin-top: 25px;
+}
+
+.modal-dialog {
+    transform: translate(0, -30%);
+    top: 30%;
+}

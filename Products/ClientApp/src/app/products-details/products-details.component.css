@@ -1,0 +1,16 @@
+.details-header {
+    margin-top: 40px; 
+}
+
+.btn-left {
+    margin-right: 10px;
+}
+
+.modal-dialog {
+    transform: translate(0, -30%);
+    top: 30%;
+}
+
+.error {
+    color: red;
+}

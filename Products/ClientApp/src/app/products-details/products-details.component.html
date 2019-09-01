@@ -1,0 +1,59 @@
+<h1 class="details-header">{{editType}} Product</h1>
+<em>Required fields *</em>
+<form [formGroup]="productForm" (ngSubmit)="submitForm()" (keydown.enter)="$event.preventDefault()">
+  <div class="form-group">
+    <label for="inputAddress">Name <span [ngClass]="isProductValid ? '' : 'error'">*</span></label>
+    <input type="text" class="form-control" formControlName="name" id="name" placeholder="Name of the product">
+    <p *ngIf="!isProductValid" class="error">This name already exists. Please select another name.</p>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Description</label>
+    <input type="text" class="form-control" formControlName="description" id="description" placeholder="A short description about the product">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Quantity *</label>
+    <input type="number" min="0" class="form-control" formControlName="quantity" id="quantity">
+    <p *ngIf="productForm.controls['quantity'].errors?.pattern" 
+        class="error">
+        Value must be valid positive integer.
+    </p>
+  </div>
+  <div class="pull-right">
+    <button (click)="exitForm()" type="button" class="btn btn-danger btn-left">Cancel</button>
+    <button type="button" 
+            class="btn btn-primary"
+            data-toggle="modal" 
+            data-target="#confirmation"
+            data-placement="bottom" 
+            title="Fill out required fields to continue"
+            [disabled]="productForm.invalid" >
+      Submit
+    </button>
+    <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="confirmationTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Save</h4>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to save changes?
+          </div>
+          <div class="modal-footer">
+            <button type="button" 
+                    class="btn btn-danger" 
+                    data-dismiss="modal">
+                    Close
+            </button>
+            <button type="submit" 
+                    class="btn btn-primary"
+                    data-toggle="modal" 
+                    data-target="#confirmation">
+                    Confirm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

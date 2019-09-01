@@ -1,0 +1,10 @@
+<app-products-list *ngIf="!editMode"
+                   (onAddProduct)="handleAddProduct()"
+                   (onEditProduct)="handleEditProduct($event)"
+                   (onDeleteProduct)="handleDeleteProduct($event)">
+</app-products-list>
+<app-products-details *ngIf="editMode"
+                      (onExitForm)="handleExitForm()"
+                      [editType]="editType"
+                      [product]="selectedProduct">
+</app-products-details>
